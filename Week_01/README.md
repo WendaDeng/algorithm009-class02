@@ -48,3 +48,5 @@
 面试前一周，恢复性做题
 
 最后，算法要进行加速的核心思想有两个：第一是升维；第二是以空间换时间。
+
+https://github.com/WendaDeng/algorithm009-class02/tree/master/Week_01
