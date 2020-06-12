@@ -16,6 +16,7 @@ public:
         if (c_index == coins.size()) return;
 
         // 当前币值（coins[c_index]）下，最多能取 k = amount / coins[c_index] 次
+        // k 必须大于等于 0，且 k 与 count 相加不超过已有的 ans，超过则不必继续了
         // 如果不成功，则回溯（k--）
         for (int k = amount / coins[c_index]; k >= 0 && k + count < ans; k--) {
             coinChange(coins, amount - k * coins[c_index], c_index + 1, count + k, ans);
