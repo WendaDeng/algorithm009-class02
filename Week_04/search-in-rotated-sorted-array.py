@@ -6,13 +6,13 @@ class Solution:
             mid = (lo + hi) // 2
             if nums[mid] == target:
                 return mid
-            if nums[0] < nums[mid]:
-                if nums[0] <= target < nums[mid]:
+            if nums[lo] <= nums[mid]:
+                if nums[lo] <= target < nums[mid]:
                     hi = mid - 1
                 else:
                     lo = mid + 1
             else:
-                if nums[mid] < target <= nums[len(nums) - 1]:
+                if nums[mid] < target <= nums[hi]:
                     lo = mid + 1
                 else:
                     hi = mid - 1
