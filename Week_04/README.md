@@ -88,3 +88,25 @@
                 right = mid - 1
              
 ##### 实际用有很多问题是二分查找的变体，乍一看无法用二分查找进行解决，但是如果仔细观察，往往能够发现规律。解决这些问题往往需要对基本的二分查找模板进行改动，比如"旋转数组"问题中就需要修改条件判断。
+
+##### 使用二分查找，寻找一个半有序数组 [4, 5, 6, 7, 0, 1, 2] 中间无序的地方
+
+    class Solution:
+        def findMin(self, nums: List[int]) -> int:
+            if len(nums) == 1:  return nums[0]
+            lo, hi = 0, len(nums) - 1
+            if nums[hi] > nums[lo]: return nums[lo]
+    
+            while lo < hi:
+                mid = (lo + hi) // 2
+                
+                # 判断 mid 附近是否是变动点，即最小值所在点
+                if nums[mid] > nums[mid + 1]:   
+                    return nums[mid + 1]
+                if nums[mid - 1] > nums[mid]:
+                    return nums[mid]
+                    
+                if nums[lo] < nums[mid]:
+                    lo = mid + 1
+                else:
+                    hi = mid - 1
